@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <style>
+      /* CSS untuk tampilan modern */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f1f1f1;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-image: radial-gradient(circle at 119.33% 50%, #4CAF50 0, #4CAF50 25%, #4CAF50 50%, #4CAF50 75%, #4CAF50 100%);
+        color: #fff;
+        padding: 30px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 25px;
+        
+      }
+      .header img {
+        height: 80px;
+      }
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 35px;
+        margin-top: 25px;
+      }
+      .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .search-container input[type=text] {
+        width: 25%;
+        height: 45px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        outline-color: #ccc;
+        font-size: 16px;
+        text-align: center; 
+        background-color: white;
+        background-image: url('https://www.w3schools.com/css/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+      }
+
+      .search-container input[type=text]:focus {
+        width: 28%;
+        
+      }
+      table {
+        border-collapse: inherit;
+        margin: auto;
+        width: 100%;
+        border-radius: 10px;
+        display: center;
+
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+        
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      th {
+        background-color: #333;
+        color: #fff;
+        text-align: center; 
+        background-image: radial-gradient(circle at 119.33% 50%, #4CAF50 0, #4CAF50 25%, #4CAF50 50%, #4CAF50 75%, #4CAF50 100%);
+      }
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        opacity: 1;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .popup-content {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        width: 500px;
+        font-size: 25px;
+       
+      }
+
+      .close-btn {
+        background-color: #ff4c4c;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .close-btn:hover {
+        background-color: #ff6666;
+      }
+
+      .popup.show {
+        opacity: 2;
+        visibility: visible;
+      }
+        
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2vf78bzH_V-9nlG8VEdbSVYfrdW9XDD57NESE9GVbWTYlwfY3NwUrtq5K7dpTs4P382dboMPdPLZ5e8x8Z9kw6cYKFdGlsYCTvweJuD0DHDRWzHHLXvTMuW2Rs4vnvhyFwzWxc_f3gmcYch0UEbp8Qy_PBvSVJhaDd8_Jmpx-vanS-roibU8CQE9V82k9/s2200/Logo%20Sekolah.png" alt="Logo Sekolah">
+      <h1>RAPOR ONLINE</h1>
+    </div>
+    <marquee><h2> SELAMAT DATANG DI SDN BONTONOMPO </h2></marquee>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body {
+        background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi84rSKMLNay6zn7nsEF1JutiS6hxDZtYGd2VUVAYqLVdKULpiOwKyacHudSo6LQ33IIbsP-i6TYpcFjohB72-LQvuVOh69_YeNvZfJDxWTFJDDizpAVK5GF7Kmf-i5HZcJnCwYNOp4QuXRxolK58QKr3xX-RvHM523VeCWLQ09AyEFrLagQRxEULRL7e1c/s1920/Blue%20Green%20Watercolor%20Linktree%20Background.jpg');
+        background-size: cover;
+        background-position: right top;
+      }
+      .search-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+      }
+      
+      .search-box form {
+        display: flex;
+        align-items: center;
+        width: 20%;
+      }
+      
+      .search-box input[type="text"] {
+        border-radius: 25px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        width: 100%;
+        text-align: center; 
+        margin: auto;
+        background-color: 	#FFFFFF;
+        color : black;
+      }
+      .search-box input[type="button"] {
+        border-radius: 25px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .search-box input[type="button"]:hover {
+        background-color: #3e8e41;
+      }
+
+      .search-box input[type="button"]:focus {
+        outline: none;
+      }
+
+      .search-box #searchBtn {
+        margin-left: 10px;
+        margin-right: 0;
+      }
+
+      table {
+        border-collapse: inherit;
+        margin: auto;
+      }
+
+      th, td {
+        border: 1px solid black;
+        padding: 20px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #ccc;
+      }
+
+      .error {
+        color: red;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="search-box">
+      <form>
+     <label class="sr-only"> </label>
+    <input type="text" id="nisn" name="nisn" placeholder="Masukkan NISN">
+    <input type="button" value="Search" onclick="search()" id="searchBtn">
+      </form>
+    </div>
+    <div id="result"></div>
+    <script>
+      function search() {
+        var nisn = document.getElementById("nisn").value;
+        google.script.run.withSuccessHandler(displayResult).searchNISN(nisn);
+      }
+
+      function displayResult(result) {
+        var resultDiv = document.getElementById("result");
+        if (result == "Data Tidak Ditemukan") {
+          resultDiv.innerHTML = "<div class='error'>Data Tidak Ditemukan</div>";
+        } else {
+          var table = "<table>";
+          table += "<tr><th>NISN</th><th>NAMA SISWA</th><th>KELAS</th><th>TAHUN</th><th>RAPOR</th></tr>";
+          for (var i = 0; i < result.length; i++) {
+            table += "<tr><td>" + result[i][1] + "</td><td>" + result[i][2] + "</td><td>" + result[i][3] + "</td><td>" + result[i][4] +"</td><td><a href='" + result[i][5] + "' target='_blank'>Download</a></td></tr>";
+          }
+          table += "</table>";
+          resultDiv.innerHTML = table;
+        }
+      }
+
+      document.getElementById("nisn").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("searchBtn").click();
+        }
+      });
+    </script>
+  </body>
+</html>
